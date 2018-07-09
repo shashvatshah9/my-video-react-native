@@ -38,22 +38,6 @@ class App extends Component{
         <Text style={{ width: 200, height: 25, color: '#fff', paddingLeft: 15, fontSize: 22}}>YouTube Focus</Text>
       </TouchableOpacity>
     ),
-    headerRight: (
-      <View style={{ flexDirection: 'row', marginRight: 20 }}>
-        <TouchableOpacity style={{paddingHorizontal: 5}}>
-          <Icon name='cast-connected' size={25} color={'#555'} />
-        </TouchableOpacity>
-        <TouchableOpacity style={{paddingHorizontal: 5}}>
-          <Icon name='videocam' size={25} color={'#555'} />
-        </TouchableOpacity>
-        <TouchableOpacity style={{paddingHorizontal: 5}}>
-          <Icon name='search' size={25} color={'#555'} />
-        </TouchableOpacity>
-        <TouchableOpacity style={{paddingHorizontal: 5}}>
-          <Icon name='account-circle' size={25} color={'#555'}/>
-        </TouchableOpacity>
-      </View>
-    )
   }
 
   constructor(props){
@@ -95,7 +79,7 @@ class App extends Component{
               {/* onPress={() => this.props.navigation.navigate('YoutubeVideo', {youtubeId: item.id.videoId})}> */}
               <View style={styles.vids}>
                 <Image 
-                  source={{uri: item.snippet.thumbnails.medium.url}} 
+                  source={{uri: item.snippet.thumbnails.high.url}} 
                   style={{width: wid, height: 180}}/>
                 <View style={styles.vidItems}>
                   <Text style={styles.vidText}>{item.snippet.title}</Text>
@@ -107,28 +91,7 @@ class App extends Component{
           </View>
         </ScrollView>
         
-        <View style={styles.tabBar}>
-          <TouchableOpacity style={styles.tabItems}>
-            <Icon name='home' size={25} color='#444'/>
-            <Text style={styles.tabTitle}>Home</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.tabItems}>
-            <Icon name='whatshot' size={25} color='#444'/>
-            <Text style={styles.tabTitle}>Trending</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.tabItems}>
-            <Icon name='subscriptions' size={25} color='#444'/>
-            <Text style={styles.tabTitle}>Subscriptions</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.tabItems}>
-            <Icons name='bell' size={25} color='#444'/>
-            <Text style={styles.tabTitle}>Activity</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.tabItems}>
-            <Icon name='folder' size={25} color='#444'/>
-            <Text style={styles.tabTitle}>Library</Text>
-          </TouchableOpacity>
-        </View>
+        
       </View>
     )
   }
@@ -168,7 +131,7 @@ const styles = StyleSheet.create({
   },
   tabBar: {
     backgroundColor: '#fff',
-    height: 70,
+    height: 60,
     flexDirection: 'row',
     justifyContent: 'space-around',
     borderTopWidth: 0.5,
@@ -177,13 +140,12 @@ const styles = StyleSheet.create({
   tabItems: {
     alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: 5
+    paddingBottom: 2
   },
   tabTitle: {
     fontSize: 11,
     color: '#333',
     paddingTop: 4,
-    textDecorationLine: 'underline'
   }
 });
 
@@ -191,3 +153,5 @@ export default screens = StackNavigator({
   Home: {screen: App},
   YouTubeVideo: { screen: YouTubeVideo}
 })
+
+
